@@ -1,24 +1,30 @@
-# Modelo Markoviano de Máxima Entropía con Viterbi e Interfaz Web
+# Algoritmo de Viterbi para Secuenciación
 
-Este repositorio contiene la implementación de un Modelo Markoviano de Máxima Entropía (MEMM) con el algoritmo de Viterbi, expuesto a través de una API Flask. Además, incluye una interfaz web simple para interactuar con el modelo, permitiendo ingresar secuencias de observaciones y obtener la secuencia más probable de etiquetas.
+Este proyecto implementa el algoritmo de Viterbi para secuenciación usando un modelo de clasificación y codificación one-hot. El algoritmo de Viterbi es utilizado para encontrar la secuencia de estados más probable en una serie de observaciones, basado en un modelo probabilístico.
 
-## Características
+## Descripción
 
-- **Modelo MEMM**: Implementación de un modelo Markoviano de Máxima Entropía utilizando `scikit-learn`.
-- **Algoritmo de Viterbi**: Algoritmo de Viterbi para encontrar la secuencia más probable de etiquetas.
-- **API Flask**: API construida con Flask para exponer el modelo y permitir interacciones mediante solicitudes HTTP.
-- **Interfaz Web**: Página HTML simple que interactúa con la API para recibir entradas del usuario y mostrar resultados.
+El algoritmo de Viterbi es un algoritmo dinámico utilizado en el procesamiento de señales y en modelos de cadenas de Markov ocultas (HMMs) para encontrar la secuencia de estados más probable. Este código implementa el algoritmo de Viterbi en Python utilizando un modelo de clasificación que predice las probabilidades de transición entre estados.
 
-## Contenidos del Repositorio
+### Componentes del Código
 
-- `app.py`: Script de Python que contiene la implementación del modelo MEMM, el algoritmo de Viterbi y la API Flask.
-- `index.html`: Archivo HTML que proporciona una interfaz de usuario simple para interactuar con la API.
-- `README.md`: Documentación del proyecto (este archivo).
+- **`viterbi(observaciones, modelo, onehot_encoder, etiqueta_dict)`**: Función que implementa el algoritmo de Viterbi. Utiliza un modelo de clasificación para predecir probabilidades de transición entre estados y devuelve la secuencia de etiquetas más probable para una serie de observaciones.
 
-## Requisitos
+### Parámetros de Entrada
 
-- Python 3.x
-- Flask
-- scikit-learn
-- numpy
-- flask-ngrok (para pruebas en Google Colab)
+- **`observaciones`**: Lista de observaciones (secuencias de entrada) que se desean etiquetar.
+- **`modelo`**: Modelo de clasificación que se usa para predecir probabilidades de transición entre estados.
+- **`onehot_encoder`**: Codificador one-hot que transforma las observaciones en vectores one-hot.
+- **`etiqueta_dict`**: Diccionario que mapea índices numéricos a etiquetas originales.
+
+### Salida
+
+- **Secuencia más probable de etiquetas**: Lista de etiquetas correspondientes a la secuencia de observaciones dada.
+
+## Instalación
+
+Este proyecto requiere `numpy` y `scikit-learn`. Puedes instalarlos utilizando pip:
+
+```bash
+pip install numpy scikit-learn
+
